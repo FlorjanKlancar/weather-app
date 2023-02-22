@@ -1,6 +1,6 @@
 import AppLayout from "components/layout/AppLayout";
 import NoSelectedCity from "components/NoSelectedCity";
-import Select from "components/Select";
+import DropdownSearch from "components/DropdownSearch";
 import WeatherCard from "components/WeatherCard";
 import WeatherHistory from "components/WeatherHistory";
 import WeatherStatus from "components/WeatherStatus";
@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <AppLayout>
-      <div className="grid grid-cols-1 justify-center gap-6 sm:grid-cols-2 lg:my-12 lg:grid-cols-3 lg:gap-20">
+      <div className="grid grid-cols-1 justify-center gap-6 sm:grid-cols-2 lg:my-12 lg:grid-cols-3 lg:gap-12">
         {selectedCity !== null ? (
           <>
             <div className="order-2 lg:order-1">
@@ -43,7 +43,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Select
+      <DropdownSearch
         selectedCity={selectedCity}
         setSelectedCity={setSelectedCity}
         inputRef={inputRef}

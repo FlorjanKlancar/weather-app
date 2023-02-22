@@ -33,7 +33,7 @@ function WeatherStatus({ selectedCity }: Props) {
 
   return (
     <CardGridLayout>
-      <div className="grid grid-cols-2 gap-14">
+      <div className="grid grid-cols-2 gap-5 py-2 md:gap-12">
         {weatherStatusValues.map((value, i: number) => (
           <WeatherStatusIcon
             key={i}

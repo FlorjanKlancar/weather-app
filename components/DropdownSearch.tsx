@@ -10,7 +10,7 @@ type Props = {
   inputRef: RefObject<HTMLInputElement>;
 };
 
-export default function Select({
+export default function DropdownSearch({
   selectedCity,
   setSelectedCity,
   inputRef,
@@ -53,12 +53,12 @@ export default function Select({
   }, []);
 
   return (
-    <div className="mt-10 flex h-10 items-center space-x-3">
+    <div className="mt-10 flex h-14 items-center space-x-3">
       <Combobox value={selectedCity} onChange={setSelectedCity}>
         <div className="relative mt-1 h-full flex-1">
           <div className="relative h-full w-full cursor-default overflow-hidden rounded-lg text-left shadow-md sm:text-sm">
             <Combobox.Input
-              className="h-full w-full border-none bg-slate-800 py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0"
+              className="h-full w-full border-none bg-slate-800 py-2 pl-3 pr-10 text-base leading-5 focus:ring-0 md:text-xl"
               displayValue={(city: CityType) =>
                 city !== null
                   ? ` ${city.name} - ${city.country} ${
@@ -83,13 +83,13 @@ export default function Select({
             afterLeave={() => resetSelect}
           >
             {isLoading ? (
-              <Combobox.Options className="absolute mt-1 max-h-60  w-full divide-y divide-slate-700 overflow-auto rounded-md bg-slate-800 py-1 text-base text-slate-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              <Combobox.Options className="absolute mt-1 max-h-60 w-full divide-y divide-slate-700 overflow-auto rounded-md bg-slate-800 py-1 text-base text-slate-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm md:text-xl">
                 <div className="relative animate-pulse cursor-default select-none py-2 px-4">
                   Loading...
                 </div>
               </Combobox.Options>
             ) : (
-              <Combobox.Options className="absolute mt-1 max-h-60  w-full divide-y divide-slate-700 overflow-auto rounded-md bg-slate-800 py-1 text-base text-slate-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              <Combobox.Options className="absolute mt-1 max-h-60  w-full divide-y divide-slate-700 overflow-auto rounded-md bg-slate-800 py-1 text-base text-slate-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm md:text-xl">
                 {dropdownValues.length === 0 && query !== "" ? (
                   <div className="relative cursor-default select-none py-2 px-4">
                     Nothing found.
@@ -99,7 +99,7 @@ export default function Select({
                     <Combobox.Option
                       key={i}
                       className={({ active }) =>
-                        `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                        `relative h-12 cursor-default select-none py-2 pl-10 pr-4 text-base md:text-xl ${
                           active ? "bg-blue-800 text-white" : ""
                         }`
                       }
@@ -118,7 +118,7 @@ export default function Select({
                           </span>
                           {selected ? (
                             <span
-                              className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              className={`absolute inset-y-0 left-0 flex h-12 items-center pl-3 ${
                                 active ? "text-white" : "text-teal-600"
                               }`}
                             >

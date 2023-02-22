@@ -7,8 +7,13 @@ function Navbar() {
       <div>
         <h1 className="text-xl font-bold text-white">Weather App</h1>
       </div>
-      <div className="">
-        <Link href="/">Home</Link>
+      <div>
+        <Link
+          href="/"
+          className="underline decoration-blue-800 decoration-2 underline-offset-4 transition-all duration-200 hover:text-blue-800"
+        >
+          Home
+        </Link>
       </div>
     </nav>
   );
