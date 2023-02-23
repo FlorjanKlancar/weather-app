@@ -1,3 +1,4 @@
+import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import React, { useEffect, useState } from "react";
 import { CityType } from "types/cityType";
 import CardGridLayout from "./layout/CardGridLayout";
@@ -56,10 +57,11 @@ function WeatherHistory({ selectedCity, setSelectedCity }: Props) {
             {cities.map((value, i: number) => (
               <li key={i} className="flex items-center py-1">
                 <button
-                  className="h-8 w-16 rounded-lg bg-blue-800 text-sm shadow-md transition-all duration-200 hover:bg-blue-900"
+                  className="flex h-8 w-20 items-center justify-center space-x-1 rounded-lg bg-blue-800 text-sm shadow-md transition-all duration-200 hover:bg-blue-900"
                   onClick={() => setSelectedCity(value)}
                 >
-                  Select
+                  <CheckCircleIcon className="h-4 w-4" />
+                  <span>Select</span>
                 </button>
                 <div className="ml-4 truncate">
                   <p className=" text-sm font-medium text-white">

@@ -1,14 +1,14 @@
 import { DocumentPlusIcon } from "@heroicons/react/24/outline";
 
 type Props = {
-  handleClick: () => void;
+  onClickFocusInput: () => void;
 };
 
-export default function NoSelectedCity({ handleClick }: Props) {
+export default function NoSelectedCity({ onClickFocusInput }: Props) {
   return (
     <button
       type="button"
-      onClick={() => handleClick()}
+      onClick={onClickFocusInput}
       className="relative  flex h-full w-full flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-200 p-12 text-center text-slate-400 hover:border-slate-600 "
     >
       <DocumentPlusIcon className="h-20 w-20" />

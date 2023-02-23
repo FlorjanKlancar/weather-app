@@ -12,7 +12,7 @@ export default function Home() {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleClick = () => {
+  const onClickFocusInput = () => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -32,7 +32,7 @@ export default function Home() {
           </>
         ) : (
           <div className="col-span-2">
-            <NoSelectedCity handleClick={handleClick} />
+            <NoSelectedCity onClickFocusInput={onClickFocusInput} />
           </div>
         )}
         <div className="order-3">
