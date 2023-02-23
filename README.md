@@ -1,6 +1,6 @@
 <div id="top"></div>
 
-<h3 align="center">Weather A</h3>
+<h3 align="center">Weather App</h3>
 
 
 <h3>Vercel Deploy: https://weather-app-zeta-ashen.vercel.app/</h3>
