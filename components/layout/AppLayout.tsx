@@ -15,7 +15,7 @@ function AppLayout({ children }: Props) {
       </Head>
       <Navbar />
 
-      <main className="mx-auto h-[100%] max-w-7xl py-12 px-4 md:mb-20 md:h-[calc(100vh-52px)] lg:px-8">
+      <main className="mx-auto h-[100%] max-w-7xl py-12 px-4 md:mb-20 md:h-[calc(100vh-52px)] lg:mb-0 lg:px-8">
         {children}
       </main>
 
