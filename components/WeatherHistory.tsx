@@ -1,4 +1,5 @@
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
+import { ChevronDoubleUpIcon } from "@heroicons/react/24/outline";
 import React, { useEffect, useState } from "react";
 import { CityType } from "types/cityType";
 import CardGridLayout from "./layout/CardGridLayout";
@@ -33,7 +34,7 @@ function WeatherHistory({ selectedCity, setSelectedCity }: Props) {
     }
   };
 
-  const checkIfActiveCity = (city: CityType) => {
+  const isCityActive = (city: CityType) => {
     if (!(city.lat === selectedCity?.lat && city.lon === selectedCity.lon))
       return false;
 
@@ -64,13 +65,18 @@ function WeatherHistory({ selectedCity, setSelectedCity }: Props) {
             {cities.map((city, i: number) => (
               <li key={i} className="flex items-center py-1">
                 <button
-                  className="flex h-8 w-20 items-center justify-center space-x-1 rounded-lg bg-blue-800 text-sm shadow-md transition-all duration-200 hover:bg-blue-900"
-                  disabled={checkIfActiveCity(city)}
+                  className="flex h-8 w-24 items-center justify-center space-x-1 rounded-lg border border-blue-800 bg-blue-800 text-sm shadow-md transition-all duration-200 hover:bg-blue-900 disabled:border-blue-800 disabled:bg-slate-800"
+                  disabled={isCityActive(city)}
                   onClick={() => setSelectedCity(city)}
                 >
-                  <CheckCircleIcon className="h-4 w-4" />
-                  <span>Select</span>
+                  {isCityActive(city) ? (
+                    <CheckCircleIcon className="h-4 w-4" />
+                  ) : (
+                    <ChevronDoubleUpIcon className="h-4 w-4" />
+                  )}
+                  <span>{isCityActive(city) ? "Selected" : "Select"}</span>
                 </button>
+
                 <div className="ml-4 truncate">
                   <p className=" text-sm font-medium text-white">
                     {city.name} - {city.country}
