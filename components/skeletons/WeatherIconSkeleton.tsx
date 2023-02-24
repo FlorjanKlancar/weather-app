@@ -7,7 +7,7 @@ import React from "react";
 
 function WeatherIconSkeleton() {
   return (
-    <div className="flex w-full flex-col space-y-5">
+    <div className="flex w-full flex-col items-center space-y-5">
       <div className="flex w-full justify-around">
         <div className="flex items-center">
           <SunIcon className="h-5 w-5 text-yellow-500" />
@@ -25,8 +25,10 @@ function WeatherIconSkeleton() {
       <div className="flex flex-col items-center space-y-2">
         <div className="relative h-20 w-20 animate-pulse rounded-full bg-slate-900" />
 
-        <p className="h-5 w-32 animate-pulse rounded-lg bg-slate-900" />
+        <p className="h-4 w-28 animate-pulse rounded-lg bg-slate-900" />
       </div>
+
+      <p className="h-5 w-32 animate-pulse rounded-lg bg-slate-900 pt-4" />
     </div>
   );
 }
