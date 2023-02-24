@@ -33,6 +33,13 @@ function WeatherHistory({ selectedCity, setSelectedCity }: Props) {
     }
   };
 
+  const checkIfActiveCity = (city: CityType) => {
+    if (!(city.lat === selectedCity?.lat && city.lon === selectedCity.lon))
+      return false;
+
+    return true;
+  };
+
   useEffect(() => {
     if (selectedCity) {
       updateStateAndLocalStorage(selectedCity);
@@ -54,22 +61,23 @@ function WeatherHistory({ selectedCity, setSelectedCity }: Props) {
       <div className="h-full w-full">
         {cities.length ? (
           <ul role="list" className="w-full divide-y divide-slate-600">
-            {cities.map((value, i: number) => (
+            {cities.map((city, i: number) => (
               <li key={i} className="flex items-center py-1">
                 <button
                   className="flex h-8 w-20 items-center justify-center space-x-1 rounded-lg bg-blue-800 text-sm shadow-md transition-all duration-200 hover:bg-blue-900"
-                  onClick={() => setSelectedCity(value)}
+                  disabled={checkIfActiveCity(city)}
+                  onClick={() => setSelectedCity(city)}
                 >
                   <CheckCircleIcon className="h-4 w-4" />
                   <span>Select</span>
                 </button>
                 <div className="ml-4 truncate">
                   <p className=" text-sm font-medium text-white">
-                    {value.name} - {value.country}
+                    {city.name} - {city.country}
                   </p>
-                  {value.state && <p className="text-xs">{value.state}</p>}
+                  {city.state && <p className="text-xs">{city.state}</p>}
                   <p className="text-sm text-gray-500">
-                    Coordinates: {value.lat.toFixed(2)} - {value.lon.toFixed(2)}
+                    Coordinates: {city.lat.toFixed(2)} - {city.lon.toFixed(2)}
                   </p>
                 </div>
               </li>
